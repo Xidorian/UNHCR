@@ -1,0 +1,37 @@
+<script>
+  window.addEventListener('load', function() {
+    const disclaimerText = document.querySelector(".osa-disclaimer");
+    const formDiv = document.getElementById('en__field_supporter_questions_1022350');
+
+    formDiv.parentNode.insertBefore(disclaimerText, formDiv.nextSibling);
+  });
+
+  function assignChoice(qid, valueToSelect, parentDiv, x, y, z) {
+    //Set question value
+    let question = document.getElementById(qid);
+    question.value = valueToSelect;
+
+    //Update confirm copy
+    let span = document.querySelector('#osa-choice');
+    var userOption = question.value;
+    span.textContent = userOption;
+
+    //Hide selected card
+    let currCard = document.getElementById(x);
+    currCard.style.display = 'none';
+
+    //Show unselected card
+    let unselectedCardOne = document.getElementById(y);
+    unselectedCardOne.style.display = 'block';
+
+    //Show the other unselected card
+    let unselectedCardTwo = document.getElementById(z);
+    unselectedCardTwo.style.display = 'block';
+
+    const formDiv = document.querySelector(".just-move-it");
+    let targetDiv = document.querySelector(parentDiv);
+    targetDiv.appendChild(formDiv);
+    formDiv.style.display = 'block';
+  }
+
+</script>
